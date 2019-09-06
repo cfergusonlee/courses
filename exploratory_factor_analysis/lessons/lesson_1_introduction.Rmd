@@ -1,0 +1,63 @@
+---
+title: "Introduction to Exploratory Factor Analysis"
+author: "Courtney Ferguson Lee"
+date: "9/3/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Lesson Objectives
+
+<img src='../images/Screen Shot 2019-09-03 at 11.42.20 AM.png' />
+
+```{r example_1}
+library(tidyverse)
+library(psych)
+```
+
+## Dataset
+
+The gcbs dataset: Generic Conspiracist Beliefs Survey
+- Take the assessment at Open Source Psychometrics Project
+- Full test is 75 items measuring five conspiracist facets
+
+```{r example_2}
+url <- "https://assets.datacamp.com/production/repositories/2136/datasets/869615371e66021e97829feb7e19e38037ed0c14/GCBS_data.rds"
+gcbs <- readRDS(gzcon(url(url)))
+```
+
+
+```{r}
+EFA_model <- fa(gcbs)
+fa.diagram(EFA_model)
+```
+
+
+```{r}
+corr.test(gcbs, use = 'pairwise.complete.obs')$p
+```
+
+
+```{r}
+alpha(gcbs)
+```
+
+```{r}
+data(bfi)
+head(bfi)
+```
+
+## Item types
+- Government malfeasance (GM)
+- Extraterrestrial coverup (ET)
+- Malevolent global conspiracies (MG)
+- Personal wellbeing (PW)
+- Control of information (CI)
+
+More information in Brotherton, French, & Pickering (2013)
+
+
+## 
