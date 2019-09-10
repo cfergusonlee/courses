@@ -31,6 +31,12 @@ gcbs <- readRDS(gzcon(url(url)))
 
 
 ```{r}
+data(bfi)
+describe(bfi)
+```
+
+
+```{r}
 EFA_model <- fa(gcbs)
 fa.diagram(EFA_model)
 ```
